@@ -1,0 +1,410 @@
+html {
+  scroll-behavior: smooth;
+}
+/* ---------- GLOBAL FONT ---------- */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* ---------- Global ---------- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background-color: #a91101; /* Light red */
+  color: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 1.2rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.navbar nav a:hover {
+  opacity: 0.8;
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: calc(100vh - 70px);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  background-color: #91a3b0; /* Gray */
+  color: #ffffff;
+  padding: 1.5rem;
+  border-right: 1px solid #ccc;
+}
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+.sidebar ul li {
+  margin: 0.7rem 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.sidebar ul li:hover {
+  color: #f9f9f9;
+}
+
+/* ---------- Feed Content ---------- */
+.content {
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+/* ---------- Post Cards ---------- */
+article {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeIn 0.4s ease forwards;
+}
+article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Fade In Animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ---------- Create Post Form ---------- */
+.create-post {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.create-post textarea {
+  resize: none;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.2s;
+}
+.create-post textarea:focus {
+  outline: none;
+  border-color: #a91101;
+}
+.create-post button {
+  align-self: flex-end;
+  background-color: #a91101;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.create-post button:hover {
+  background-color: #8e0f02;
+}
+/* ---------- AUTH LAYOUT ---------- */
+.auth-wrap {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 70px); /* minus navbar */
+  padding: 2rem;
+  background: #91a3b0; /* gray background */
+}
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  overflow: hidden; /* keep titlebar corners rounded */
+  animation: fadeIn 0.3s ease;
+}
+
+.auth-titlebar {
+  background: #a91101; /* MyShivalik red */
+  color: #ffffff;
+  padding: 0.9rem 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.auth-body {
+  padding: 1.2rem 1.4rem 1.6rem;
+}
+
+.auth-logo {
+  display: block;
+  margin: 1rem auto 0.6rem;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.auth-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.auth-row.two {
+  grid-template-columns: 1fr 1fr; /* class + section side-by-side */
+}
+
+.auth-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #a91101;
+  box-shadow: 0 0 0 3px rgba(169,17,1,0.15);
+}
+
+.auth-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.auth-btn {
+  background: #a91101;
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, opacity 0.2s ease;
+}
+
+.auth-btn:hover { opacity: 0.9; }
+.auth-btn:active { transform: translateY(1px); }
+
+.auth-status {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* Medium screens (tablets) */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 200px 1fr; /* narrower sidebar */
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar nav {
+    margin-top: 8px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 650px) {
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    display: none; /* hide sidebar on phone view */
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar h2 {
+    font-size: 1.2rem;
+  }
+
+  .navbar nav a,
+  .navbar nav button {
+    font-size: 0.9rem;
+    margin-left: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  article {
+    font-size: 0.95rem;
+  }
+
+  /* auth pages */
+  .auth-wrap {
+    padding: 1rem;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .auth-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .auth-row.two {
+    grid-template-columns: 1fr; /* stack class/section vertically */
+  }
+}
+button:active {
+  transform: scale(0.97);
+}
+
+
+
+/* ---------- NAVBAR FONT POLISH ---------- */
+
+.navbar h2 {
+  font-size: 2.1rem;       /* slightly bigger for "MyShivalik" title */
+  font-weight: 700;        /* bold title */
+  letter-spacing: 3.5px;
+}
+
+.navbar nav a,
+.navbar nav button {
+  font-size: 1.1rem;      /* slightly larger than before */
+  font-weight: 400;        /* bold links */
+}
+
+/* ---------- SIDEBAR FONT POLISH ---------- */
+
+.sidebar {
+  font-size: 1.20rem;      /* slightly larger text in sidebar */
+  font-weight: 600;        /* make sidebar items bold */
+}
+
+.sidebar a {
+  font-size: inherit;      /* keeps consistent */
+  font-weight: inherit;
+}
+/* ====== MOBILE/TABLET RESPONSIVE (<= 768px) ====== */
+@media (max-width: 768px) {
+  /* Layout */
+  .sidebar {
+    display: none; /* hide sidebar on small screens */
+  }
+
+  /* If you have a main content wrapper, ensure it stretches */
+  .content,
+  .main-content,
+  .feed,
+  .page {
+    margin: 0 !important;
+    padding: 12px !important;
+    width: 100% !important;
+  }
+
+  /* Navbar: keep compact and readable */
+  .navbar {
+    padding: 10px 12px !important;
+  }
+
+  /* If your links are in a .nav-links container, stack or hide for now */
+  .navbar .nav-links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Make title + items readable on mobile */
+  .navbar h2 {
+    font-size: 1.4rem !important;
+  }
+  .navbar nav a,
+  .navbar nav button {
+    font-size: 1rem !important;
+  }
+
+  /* Cards: full-width, airy, easy to read */
+  .card {
+    width: 100%;
+    padding: 1rem !important;
+    border-radius: 12px;
+  }
+
+  /* Tap targets: comfy */
+  button,
+  .card button,
+  .btn {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  /* Inputs comfy */
+  input[type="text"],
+  input[type="password"],
+  input[type="file"],
+  select,
+  textarea {
+    min-height: 40px;
+    padding: 10px 12px;
+    width: 100%;
+  }
+
+  /* Avatars inside cards: scale slightly down to fit */
+  .card img {
+    max-width: 72px;
+    max-height: 72px;
+  }
+
+  /* Grids: single column on phones */
+  .grid,
+  .cards,
+  .results-list {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+/* ---- Bottom Navigation (mobile only) ---- */
+.bottom-nav {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: flex !important;
+  }
+}
