@@ -301,7 +301,7 @@ function Feed() {
   const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/posts")
+    fetch("https://myshivalik-backend.onrender.com/api/posts")
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.error(err));
@@ -318,14 +318,14 @@ function Feed() {
 const token = localStorage.getItem("token");
 const decoded = token ? JSON.parse(atob(token.split('.')[1])) : null;
 const authorId = decoded ? decoded.id : null;
-      await fetch("http://127.0.0.1:5000/api/posts", {
+      await fetch("https://myshivalik-backend.onrender.com/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ authorId, content }),
       });
       setContent("");
       // reload posts
-      const res = await fetch("http://127.0.0.1:5000/api/posts");
+      const res = await fetch("https://myshivalik-backend.onrender.com/api/posts");
       const newData = await res.json();
       setPosts(newData);
     } catch (err) {
@@ -407,7 +407,7 @@ function LikeButton({ postId, likes }) {
 
   const handleLike = async () => {
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${postId}/like`, {
+      const res = await fetch(`https://myshivalik-backend.onrender.com/api/posts/${postId}/like`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId }),
@@ -464,7 +464,7 @@ const profileId = urlParams.get("id") || currentUserId;
 
 
    // Fetch profile info (own or others)
-fetch(`http://127.0.0.1:5000/api/users/${profileId}`)
+fetch(`https://myshivalik-backend.onrender.com/api/users/${profileId}`)
   .then((res) => res.json())
   .then((data) => {
     setUser(data);
@@ -483,7 +483,7 @@ fetch(`http://127.0.0.1:5000/api/users/${profileId}`)
   .catch((err) => console.error(err));
 
 // Fetch that profile’s posts
-fetch(`http://127.0.0.1:5000/api/posts/user/${profileId}`)
+fetch(`https://myshivalik-backend.onrender.com/api/posts/user/${profileId}`)
   .then((res) => res.json())
   .then((data) => setPosts(data))
   .catch((err) => console.error(err));
@@ -497,7 +497,7 @@ fetch(`http://127.0.0.1:5000/api/posts/user/${profileId}`)
       const decoded = JSON.parse(atob(token.split(".")[1]));
       const senderId = decoded.id;
 
-      const res = await fetch(`http://127.0.0.1:5000/api/users/${user._id}/send-request`, {
+      const res = await fetch(`https://myshivalik-backend.onrender.com/api/users/${user._id}/send-request`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ senderId }),
@@ -521,7 +521,7 @@ const handleAcceptRequest = async (senderId) => {
     const receiverId = decoded.id;
 
     const res = await fetch(
-      `http://127.0.0.1:5000/api/users/${senderId}/accept-request`,
+      `https://myshivalik-backend.onrender.com/api/users/${senderId}/accept-request`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -533,7 +533,7 @@ const handleAcceptRequest = async (senderId) => {
     if (res.ok) {
       alert("✅ Friend request accepted!");
       // Refresh user data
-      fetch(`http://127.0.0.1:5000/api/users/${receiverId}`)
+      fetch(`https://myshivalik-backend.onrender.com/api/users/${receiverId}`)
         .then((res) => res.json())
         .then((data) => setUser(data));
     } else {
@@ -583,7 +583,7 @@ const handleAcceptRequest = async (senderId) => {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:5000/api/users/${userId}/upload-pic`,
+        `https://myshivalik-backend.onrender.com/api/users/${userId}/upload-pic`,
         {
           method: "POST",
           body: formData, // no headers! the browser sets them automatically

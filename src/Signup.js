@@ -32,7 +32,7 @@ export default function Signup() {
     formData.append("password", password);
     if (profilePic) formData.append("image", profilePic);
 
-    const res = await fetch("http://127.0.0.1:5000/api/auth/signup", {
+    const res = await fetch("https://myshivalik-backend.onrender.com/api/auth/signup", {
       method: "POST",
       body: formData,
     });

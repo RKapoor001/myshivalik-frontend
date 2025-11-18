@@ -14,7 +14,7 @@ export default function Friends() {
     const decoded = JSON.parse(atob(token.split(".")[1]));
     const userId = decoded.id;
 
-    fetch(`http://127.0.0.1:5000/api/users/${userId}/friends`)
+    fetch(`https://myshivalik-backend.onrender.com/api/users/${userId}/friends`)
       .then((res) => res.json())
       .then((data) => {
         setFriends(data);
