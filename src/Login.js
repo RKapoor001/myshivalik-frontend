@@ -22,7 +22,7 @@ export default function Login() {
 
       setStatus("✅ Login successful!");
       setName(""); setPassword("");
-      window.location.href = "/"; // to feed
+      window.location.href = "/feed";// to feed
     } catch (err) {
       setStatus("❌ " + err.message);
     }
