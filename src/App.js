@@ -267,7 +267,14 @@ function App() {
           {/* Page content */}
           <section className="content">
             <Routes>
-              <Route path="/" element={<Navigate to="/signup" replace />} />
+             <Route
+  path="/"
+  element={
+    localStorage.getItem("token")
+      ? <Navigate to="/feed" replace />
+      : <Navigate to="/signup" replace />
+  }
+/>
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/feed" element={<Feed />} />
