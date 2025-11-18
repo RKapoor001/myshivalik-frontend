@@ -267,9 +267,9 @@ function App() {
           {/* Page content */}
           <section className="content">
             <Routes>
+              <Route path="/" element={<Navigate to="/signup" replace />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/" element={<Feed />} />
               <Route path="/feed" element={<Feed />} />
               <Route path="/search" element={<Search />} />
               <Route path="/profile" element={<Profile />} />
