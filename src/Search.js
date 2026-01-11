@@ -10,7 +10,7 @@ export default function Search() {
     setLoading(true);
     try {
       const res = await fetch(
-        `https://myshivalik-backend.onrender.com/api/users/search?name=${query}&classSection=${classSection}`
+        `https://myshivalik-backend-jctn.onrender.com/api/users/search?name=${query}&classSection=${classSection}`
       );
       const data = await res.json();
       setResults(data);
